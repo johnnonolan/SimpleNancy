@@ -14,7 +14,10 @@ namespace SimpleNancy.SelfHost
 					Console.WriteLine("host start");
 					host.Start();
 					Console.WriteLine("host started");
-					Console.ReadLine();
+					while (Console.ReadKey(true).Key != ConsoleKey.Escape)
+					{
+						
+					}
 					Console.WriteLine("App closing");
 				}
 			}
