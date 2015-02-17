@@ -6,7 +6,7 @@
 	{
 		public HelloModule()
 		{
-			Get["/"] = _ => "Hello I'm a self hosting Nancy process hopwfully from inside a docker container running on mono!";
+			Get["/"] = _ => "Hello I'm a self hosting Nancy process hopefully from inside a docker container running on mono!";
 		}
 
 	}

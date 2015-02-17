@@ -7,12 +7,21 @@ namespace SimpleNancy.SelfHost
 	{
 		static void Main()
 		{
-			using (var host = new NancyHost(new Uri("http://localhost:1234")))
+			try
 			{
-				host.Start();
-				Console.ReadLine();
+				using (var host = new NancyHost(new Uri("http://localhost:1234")))
+				{
+					Console.WriteLine("host start");
+					host.Start();
+					Console.WriteLine("host started");
+					Console.ReadLine();
+					Console.WriteLine("App closing");
+				}
 			}
-
+			catch (Exception exception)
+			{
+				Console.WriteLine(exception.Message);
+			}
 		}
 	}
 }
