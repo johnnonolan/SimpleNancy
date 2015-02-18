@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading;
 using Nancy.Hosting.Self;
 
 namespace SimpleNancy.SelfHost
 {
 	class Program
 	{
+		static readonly ManualResetEvent ResetEvent = new ManualResetEvent(false);
 		static void Main()
 		{
 			try
@@ -14,10 +16,7 @@ namespace SimpleNancy.SelfHost
 					Console.WriteLine("host start");
 					host.Start();
 					Console.WriteLine("host started");
-					while (Console.ReadKey(true).Key != ConsoleKey.Escape)
-					{
-						
-					}
+					ResetEvent.WaitOne();
 					Console.WriteLine("App closing");
 				}
 			}
